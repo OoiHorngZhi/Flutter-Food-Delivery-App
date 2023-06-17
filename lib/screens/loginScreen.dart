@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/screens/forgetPwScreen.dart';
 import 'package:monkey_app_demo/screens/homeScreen.dart';
+import 'package:monkey_app_demo/reusable_widgets/textfield.dart';
 
 import '../const/colors.dart';
 import '../screens/forgetPwScreen.dart';
@@ -10,6 +12,9 @@ import '../widgets/customTextInput.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = "/loginScreen";
+
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +37,27 @@ class LoginScreen extends StatelessWidget {
                 Spacer(),
                 Text('Add your details to login'),
                 Spacer(),
-                CustomTextInput(
-                  hintText: "Your email",
-                ),
+                reusableTextField("Enter Email Id", Icons.person_outline, false,
+                    _emailTextController),
                 Spacer(),
-                CustomTextInput(
-                  hintText: "password",
-                ),
+                reusableTextField("Enter Password", Icons.lock_outlined, true,
+                    _passwordTextController),
                 Spacer(),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(HomeScreen.routeName);
-                    },
-                    child: Text("Login"),
-                  ),
+                  child:   firebaseUIButton(context, "Sign In", () {
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                        email: _emailTextController.text,
+                        password: _passwordTextController.text)
+                        .then((value) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()));
+                    }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                    });
+                  }),
                 ),
                 Spacer(),
                 GestureDetector(
