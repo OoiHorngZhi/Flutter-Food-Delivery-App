@@ -1,12 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/screens/homeScreen.dart';
+import 'package:monkey_app_demo/reusable_widgets/textfield.dart';
+
 import '../const/colors.dart';
 import '../screens/loginScreen.dart';
 import '../utils/helper.dart';
 import '../widgets/customTextInput.dart';
 
+
 class SignUpScreen extends StatelessWidget {
   static const routeName = '/signUpScreen';
+
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,28 +36,28 @@ class SignUpScreen extends StatelessWidget {
                 "Add your details to sign up",
               ),
               Spacer(),
-              CustomTextInput(hintText: "Name"),
+              reusableTextField("Enter Email Id", Icons.person_outline, false,
+                  _emailTextController),
               Spacer(),
-              CustomTextInput(hintText: "Email"),
-              Spacer(),
-              CustomTextInput(hintText: "Mobile No"),
-              Spacer(),
-              CustomTextInput(hintText: "Address"),
-              Spacer(),
-              CustomTextInput(hintText: "Password"),
-              Spacer(),
-              CustomTextInput(hintText: "Confirm Password"),
+              reusableTextField("Enter Password", Icons.lock_outlined, true,
+                  _passwordTextController),
               Spacer(),
               SizedBox(
                 height: 50,
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(HomeScreen.routeName);
-                  },
-                  child: Text("Sign Up"),
-                ),
+                  child: firebaseUIButton(context, "Sign Up", () {
+                    FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                        email: _emailTextController.text,
+                        password: _passwordTextController.text)
+                        .then((value) {
+                      print("Created New Account");
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()));
+                    }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                    });
+                  })
               ),
               Spacer(),
               GestureDetector(

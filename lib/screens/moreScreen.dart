@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/screens/aboutScreen.dart';
@@ -67,14 +68,17 @@ class MoreScreen extends StatelessWidget {
                     height: 10,
                   ),
 
-                  MoreCard(
-                    image: Image.asset(
-                      Helper.getAssetName("next.png", "virtual"),
+                  SizedBox(
+                    child: ElevatedButton(
+                      child: Text("Logout"),
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut().then((value) {
+                          print("Signed Out");
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => LoginScreen()));
+                        });
+                      },
                     ),
-                    name: "Log out",
-                    handler: () {
-                      Navigator.of(context).pushNamed(LoginScreen.routeName);
-                    },
                   ),
                   SizedBox(
                     height: 10,
