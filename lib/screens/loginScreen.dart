@@ -77,9 +77,6 @@ class LoginScreen extends StatelessWidget {
                 ),
 
 
-                Spacer(
-                  flex: 4,
-                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context)
