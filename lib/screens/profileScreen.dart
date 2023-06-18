@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
+import 'package:monkey_app_demo/screens/loginScreen.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 import 'package:monkey_app_demo/widgets/customNavBar.dart';
 import 'package:monkey_app_demo/widgets/customTextInput.dart';
@@ -43,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
                               width: 80,
                               child: Image.asset(
                                 Helper.getAssetName(
-                                  "user.jpg",
+                                  "propic.jpg",
                                   "real",
                                 ),
                                 fit: BoxFit.cover,
@@ -84,13 +85,19 @@ class ProfileScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "Hi there Emilia!",
+                        "Hi !",
                         style: Helper.getTheme(context).headline4.copyWith(
                               color: AppColor.primary,
                             ),
                       ),
                       SizedBox(
                         height: 5,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(LoginScreen.routeName);
+                          },
+                        ),
                       ),
                       Text("Sign Out"),
                       SizedBox(
@@ -98,21 +105,21 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       CustomFormImput(
                         label: "Name",
-                        value: "Emilia Clarke",
+                        value: "",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Email",
-                        value: "emiliaclarke@email.com",
+                        value: "",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Mobile No",
-                        value: "0188888888",
+                        value: "",
                       ),
                       SizedBox(
                         height: 20,
@@ -120,7 +127,7 @@ class ProfileScreen extends StatelessWidget {
 
                       CustomFormImput(
                         label: "Password",
-                        value: "Emilia Clarke",
+                        value: "",
                         isPassword: true,
                       ),
 

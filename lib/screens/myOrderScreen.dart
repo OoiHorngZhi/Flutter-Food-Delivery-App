@@ -117,7 +117,7 @@ class MyOrderScreen extends StatelessWidget {
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Text("No 03, 4th Lane, Newyork")
+                                Text("No 03, 4th Lane, Bayan Lepas")
                               ],
                             )
                           ],
@@ -213,7 +213,7 @@ class MyOrderScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$68",
+                            "\RM68",
                             style: Helper.getTheme(context).headline3.copyWith(
                                   color: AppColor.green,
                                 ),
@@ -232,7 +232,7 @@ class MyOrderScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$2",
+                            "\RM2",
                             style: Helper.getTheme(context).headline3.copyWith(
                                   color: AppColor.green,
                                 ),
@@ -258,7 +258,7 @@ class MyOrderScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$70",
+                            "\RM70",
                             style: Helper.getTheme(context).headline3.copyWith(
                                   color: AppColor.green,
                                   fontSize: 22,
@@ -334,7 +334,7 @@ class BurgerCard extends StatelessWidget {
             ),
           ),
           Text(
-            "\$$_price",
+            "\RM$_price",
             style: TextStyle(
               color: AppColor.primary,
               fontSize: 16,

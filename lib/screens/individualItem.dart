@@ -166,7 +166,7 @@ class IndividualItem extends StatelessWidget {
                                                   Text(
                                                     "4 Star Ratings",
                                                     style: TextStyle(
-                                                      color: AppColor.orange,
+                                                      color: AppColor.green,
                                                       fontSize: 12,
                                                     ),
                                                   )
@@ -181,7 +181,7 @@ class IndividualItem extends StatelessWidget {
                                                       height: 20,
                                                     ),
                                                     Text(
-                                                      "Rs. 750",
+                                                      "RM 48",
                                                       style: TextStyle(
                                                         color: AppColor.primary,
                                                         fontSize: 30,
@@ -416,7 +416,7 @@ class IndividualItem extends StatelessWidget {
                                               Container(
                                                 width: 120,
                                                 decoration: ShapeDecoration(
-                                                  color: AppColor.orange,
+                                                  color: AppColor.green,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.only(
@@ -486,7 +486,7 @@ class IndividualItem extends StatelessWidget {
                                                           height: 10,
                                                         ),
                                                         Text(
-                                                          "LKR 1500",
+                                                          "RM 96",
                                                           style: TextStyle(
                                                             color: AppColor
                                                                 .primary,
