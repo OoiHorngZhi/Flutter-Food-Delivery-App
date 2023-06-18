@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:monkey_app_demo/screens/loginScreen.dart';
+import 'package:monkey_app_demo/screens/mapScreen.dart';
+import 'package:monkey_app_demo/screens/menuScreen.dart';
 import 'package:monkey_app_demo/screens/moreScreen.dart';
 
 import '../const/colors.dart';
@@ -30,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Good morning Akila!",
+                          "WELCOME !",
                           style: Helper.getTheme(context).headline5,
                         ),
                         Image.asset(Helper.getAssetName("cart.png", "virtual"))
@@ -44,42 +47,31 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                     ),
-                    child: Text("Deilivering to"),
+                    child: Text("Delivery to"),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed(MapScreen.routeName);
+                      },
+                      child: Text("Choose Location"),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                     ),
-                    child: DropdownButtonHideUnderline(
-                      child: SizedBox(
-                        width: 250,
-                        child: DropdownButton(
-                          value: "current location",
-                          items: [
-                            DropdownMenuItem(
-                              child: Text("Current Location"),
-                              value: "current location",
-                            ),
-                            DropdownMenuItem(
-                              child: Text("choose Location"),
-                              value: "choosed location",
-                            ),
-                          ],
-                          icon: Image.asset(
-                            Helper.getAssetName(
-                                "dropdown_filled.png", "virtual"),
-                          ),
-                          style: Helper.getTheme(context).headline4,
-                          onChanged: (_) {},
-                        ),
-                      ),
-                    ),
+
                   ),
                   SizedBox(
                     height: 20,
                   ),
+
                   SearchBar(
-                    title: "Search Food",
+                    title: "Search Restaurants",
                   ),
 
 
