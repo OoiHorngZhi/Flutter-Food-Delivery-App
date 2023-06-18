@@ -53,7 +53,7 @@ class CheckoutScreen extends StatelessWidget {
                       SizedBox(
                         width: Helper.getScreenWidth(context) * 0.4,
                         child: Text(
-                          "653 Nostrand Ave., Brooklyn, NY 11216",
+                          "653 Banana., iicp, Penang",
                           style: Helper.getTheme(context).headline3,
                         ),
                       ),
@@ -352,7 +352,7 @@ class CheckoutScreen extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text("johndoe@email.com"),
+                          Text("user@email.com"),
                         ],
                       ),
                       Container(
@@ -387,7 +387,7 @@ class CheckoutScreen extends StatelessWidget {
                         children: [
                           Text("Sub Total"),
                           Text(
-                            "\$68",
+                            "\RM68",
                             style: Helper.getTheme(context).headline3,
                           )
                         ],
@@ -400,7 +400,7 @@ class CheckoutScreen extends StatelessWidget {
                         children: [
                           Text("Delivery Cost"),
                           Text(
-                            "\$2",
+                            "\RM2",
                             style: Helper.getTheme(context).headline3,
                           )
                         ],
@@ -413,7 +413,7 @@ class CheckoutScreen extends StatelessWidget {
                         children: [
                           Text("Discount"),
                           Text(
-                            "-\$4",
+                            "-\RM4",
                             style: Helper.getTheme(context).headline3,
                           )
                         ],
@@ -428,7 +428,7 @@ class CheckoutScreen extends StatelessWidget {
                         children: [
                           Text("Total"),
                           Text(
-                            "\$66",
+                            "\RM66",
                             style: Helper.getTheme(context).headline3,
                           )
                         ],
